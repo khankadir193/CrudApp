@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import Main from './Crud/Main';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { Table } from '@material-ui/core';
+import TableData from './Crud/TableData';
+import Edit from './Crud/Edit';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<TableData />}></Route>
+        <Route path='/create' element={<Main />}></Route>
+        <Route path='/update' element={<Edit />}></Route>
+
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
